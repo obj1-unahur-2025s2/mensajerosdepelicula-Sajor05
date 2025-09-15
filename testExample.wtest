@@ -1,9 +1,40 @@
-import example.pepita
+import mensajeros.*
+import transporte.*
+import destinos.*
+import paquetes.*
 
-describe "group of tests for pepita" {
-
-  test "pepita has initial energy" {
-    assert.equals(100, pepita.energy())
+describe "primera parte" {
+  test "Que Roberto con un camion puede llevar un paquete qie esta pago al puente de Brooklyn" {
+    paqueteSimple.pagarPaquete()
+    roberto.cambiarTransporte(camion)
+    assert.that(roberto.puedeEntregar(puenteBrooklyn,paqueteSimple))
   }
 
+  test "Que Neo con credito, no puede lleaar un paquete no pago a la matrix" {
+    paqueteSimple.estaPago()
+    assert.notThat(neo.puedeEntregar(paqueteSimple, laMatrix))
+  }
 }
+
+describe "segunda parte" {
+  test "contratar mensajeros" {
+    empresaDeMensajeria.contratarMensajero(neo)
+    assert.that(empresaDeMensajeria.estaContratado(neo))
+  }
+
+  test "despedir mensajeros" {
+    empresaDeMensajeria.contratarMensajero(neo)
+    empresaDeMensajeria.despedirMensajero(neo)
+    assert.notThat(empresaDeMensajeria.estaContratado(neo))
+  }
+  test "despdedir a todos los mensajeros"{
+    empresaDeMensajeria.contratarMensajero(neo)
+    empresaDeMensajeria.contratarMensajero(chuckNorris)
+    empresaDeMensajeria.contratarMensajero(roberto)
+    empresaDeMensajeria.despedirATodosLosMensajeros()
+    assert.equals(empresaDeMensajeria.cantEmpleados(),0)
+
+  }
+}
+
+
