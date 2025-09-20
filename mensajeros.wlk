@@ -27,7 +27,6 @@ object roberto {
 }
 
 object neo {
-  
   //R E T O R N O
   method peso() = 40
   method puedeLlamar() = true
@@ -39,33 +38,5 @@ object chuckNorris {
   method puedeLlamar() = true
   method puedeEntregar(unDestino,unPaquete) = unDestino.puedePasar(self) and unPaquete.estaPago()
 
-}
-
-
-object empresaDeMensajeria{
-  
-  const property mensajeros = #{}
-  
-  method contratarMensajero(unMensajero) {
-    mensajeros.add(unMensajero)
-  }
-  method despedirMensajero(unMensajero){
-    mensajeros.remove(unMensajero)
-  }
-  
-  method despedirATodosLosMensajeros(){
-    mensajeros.clear()
-  }
-  
-  method estaContratado(unMensajero) = mensajeros.contains(unMensajero)
-
-  method siEsGrande() = mensajeros.size()>2
-
-  method cantEmpleados() = mensajeros.size() 
-    
-  method primeroPuedeEntregar(unDestino, unPaquete) =
-   mensajeros.first().puedeEntregar(unDestino, unPaquete)
-  
-  method pesoUltimoMensajero() = mensajeros.last().peso()
 }
 

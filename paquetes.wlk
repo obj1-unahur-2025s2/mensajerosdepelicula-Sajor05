@@ -1,39 +1,39 @@
 object paqueteSimple {
+  //V A R I A B L E
   var estaPago = false
+  //R E T O R N O
   method estaPago() = estaPago
+  //E F E C T O
   method pagarPaquete() {
     estaPago = true
   }
 }
 
 object paquetito{
-  method estaPago(){
-    return true
-  }
-  method sePuedeEntregar(unMensajero, unDestino){
-    return true
-  }
+  //R E T O R N O
+  method estaPago() = true
+  method sePuedeEntregar(unMensajero, unDestino) = true
 }
 object paqueton {
+  //C O N S T
+  const valorPorDestino = 100
+  const destinos = []
 
- const valorPorDestino = 100
- var pagoPorDestino = 0
- const destinos = []
+  //V A R I A B L E S
+  var pagoPorDestino = 0
 
- method agregarDestino(unDestino){
-  destinos.add(unDestino)
- }
- method estaPago(){
-  return self.valorTotalDelPaquete() == pagoPorDestino
- }
- method valorTotalDelPaquete(){
-  return destinos.size() * valorPorDestino
- }
- method pagarPorDestino(){
-  pagoPorDestino += 100
- }
- method sePuedeEntregar(unMensajero, unDestino){
+  //R E T O R N O
+  method sePuedeEntregar(unMensajero, unDestino) = destinos.all({unDestino -> unMensajero.puedeArribar(unDestino)}) && self.estaPago()
+  method estaPago() = self.valorTotalDelPaquete() == pagoPorDestino
+  method valorTotalDelPaquete() = destinos.size() * valorPorDestino
 
-  return destinos.all({unDestino -> unMensajero.puedeArribar(unDestino)}) && self.estaPago()
- }
+ //E F E C T O
+  method agregarDestino(unDestino){
+   destinos.add(unDestino)
+  }
+
+  method pagarPorDestino(){
+   pagoPorDestino += 100
+  }
+
 }

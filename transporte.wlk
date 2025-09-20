@@ -5,10 +5,7 @@ object bicicleta {
 object camion {
   var cantAcoplado = 1
   method peso() = 500 * cantAcoplado
-  method agregarPeso() {
-    cantAcoplado+=1
-  }
-  method quitarPeso() {
-    cantAcoplado-=1
+  method cambiarAcoplado(unValor){
+    cantAcoplado = unValor.max(0)
   }
 }
