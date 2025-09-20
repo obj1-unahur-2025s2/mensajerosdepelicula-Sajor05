@@ -1,3 +1,7 @@
+import mensajeros.*
+import paquetes.*
+import destinos.*
+
 object empresaDeMensajeria{
   //C O N S T
   const property mensajeros = #{}

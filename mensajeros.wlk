@@ -2,7 +2,7 @@ import transporte.*
 import destinos.*
 import paquetes.*
 object roberto {
-
+  //V A R I A B L E S
   var property peso = 50  
   var paquete = paqueteSimple
   var credito = true
