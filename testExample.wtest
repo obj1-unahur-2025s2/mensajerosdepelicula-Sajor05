@@ -2,17 +2,20 @@ import mensajeros.*
 import transporte.*
 import destinos.*
 import paquetes.*
+import empresa.*
 
 describe "primera parte" {
-  test "Que Roberto con un camion puede llevar un paquete qie esta pago al puente de Brooklyn" {
+  test "Que Roberto con un camion puede llevar un paquete que esta pago al puente de Brooklyn" {
     paqueteSimple.pagarPaquete()
     roberto.cambiarTransporte(camion)
-    assert.that(roberto.puedeEntregar(puenteBrooklyn,paqueteSimple))
+    camion.cambiarAcoplado(1)
+    paqueteSimple.cambiarDestino(puenteBrooklyn)
+    assert.that(roberto.puedeEntregar())
   }
 
-  test "Que Neo con credito, no puede lleaar un paquete no pago a la matrix" {
+  test "Que Neo con credito, no puede llevar un paquete no pago a la matrix" {
     paqueteSimple.estaPago()
-    assert.notThat(neo.puedeEntregar(paqueteSimple, laMatrix))
+    assert.notThat(neo.puedeEntregar())
   }
 }
 

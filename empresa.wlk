@@ -5,7 +5,7 @@ object empresaDeMensajeria{
   //R E T O R N O
   method estaContratado(unMensajero) = mensajeros.contains(unMensajero)
 
-  method siEsGrande() = mensajeros.size()>2
+  method siEsGrande() = mensajeros.size() > 2
 
   method cantEmpleados() = mensajeros.size() 
     
@@ -24,5 +24,4 @@ object empresaDeMensajeria{
     mensajeros.clear()
   }
   
-
 }

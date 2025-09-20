@@ -1,8 +1,8 @@
 object puenteBrooklyn{
-    method puedePasar(unObjeto) = unObjeto.peso() <= 1000
+    method puedePasar(unMensajero) = unMensajero.peso() <= 1000
 }
 
 object laMatrix {
-  method puedePasar(unObjeto) = unObjeto.puedeLlamar()
+  method puedePasar(unMensajero) = unMensajero.puedeLlamar()
 }
 

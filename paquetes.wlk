@@ -1,11 +1,17 @@
+import destinos.*
 object paqueteSimple {
   //V A R I A B L E
+  var destino = laMatrix
   var estaPago = false
   //R E T O R N O
   method estaPago() = estaPago
+  method destino() = destino
   //E F E C T O
   method pagarPaquete() {
     estaPago = true
+  }
+  method cambiarDestino(unDestino) {
+    destino = unDestino
   }
 }
 
